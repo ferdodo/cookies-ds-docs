@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<title> cookies-ds docs </title>
+		<meta charset="utf-8">
+		<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+		<link rel="stylesheet" href="spectre.min.css">
+		<link rel="stylesheet" href="spectre-exp.min.css">
+		<link rel="stylesheet" href="github.css">
+
+		<style>
+			section {
+				margin-bottom: 3rem;
+				max-width: 30rem;
+			}
+
+			h3, h4, h5 {
+				font-size: 1.5em;
+			}
+		</style>
+	</head>
+
+	<body style="height: 100%;">
+		<script type="module" src="main.js"></script>
+
+		<div class="container" style="height: 100%;">
+			<div class="columns" style="height: 100%;">
+				<div class="column col-3 col-lg-4 hide-md bg-gray" style="padding: 1rem;">
+					<ul class="nav">
+						<li class="text-gray"> <b> GETTING STARTED </b> </li>
+							<ul class="nav">
+								<li class="nav-item"><a href="#overview">  Overview </a></li>
+								<li class="nav-item"><a href="#installation"> Installation </a></li>
+								<li class="nav-item"><a href="#installation-no-bundler"> Installation without a javascript bundler </a></li>
+								<li class="nav-item"><a href="#usage"> Usage </a></li>
+							</ul>
+						<li class="text-gray"> <b> COMPONENTS </b> </li>
+						<ul class="nav">
+							<li class="nav-item"><a href="#padlock"> Padlock </a></li>
+							<li class="nav-item"><a href="#smart-padlock"> Smart Padlock </a></li>
+							<li class="nav-item"><a href="#wheel"> Wheel </a></li>
+							<li class="nav-item"><a href="#lcd-screen"> Lcd Screen </a></li>
+							<li class="nav-item"><a href="#padlock-screen"> Padlock Screen </a></li>
+							<li class="nav-item"><a href="#background"> Background </a></li>
+							<li class="nav-item"><a href="#panel"> Panel </a></li>
+							<li class="nav-item"><a href="#h1"> H1 </a></li>
+							<li class="nav-item"><a href="#p"> P </a></li>
+							<li class="nav-item"><a href="#a"> A </a></li>
+							<li class="nav-item"><a href="#info"> Info </a></li>
+							<li class="nav-item"><a href="#datetime-picker"> Datetime Picker </a></li>
+							<li class="nav-item"><a href="#breadcrumbs"> Breadcrumbs </a></li>
+							<li class="nav-item"><a href="#snackbar-dock"> Snackbar Dock </a></li>
+						</ul>
+					</ul>
+				</div>
+
+				<div class="column col-9 col-lg-8 col-md-12" style="padding: 1rem; max-height: 100vh; overflow: scroll; padding-bottom: 40rem;">
+					<section id="overview">
+						<h3 > <b> 🍪 COOKIES-DS </b> <small class="label">DOCS</small> </h3>
+						<h4 class="text-primary text-bold"> Getting Started </h4>
+						<h5> Overview </h5>
+
+						<p>
+							Experimental lib including a set of web components. It was retrieved
+							from a small dead project, and will be reused for future small
+							projects. It also has a <a href="example.org">demo</a>, an
+							<a href="https://www.npmjs.com/package/cookies-ds">npm package</a>,
+							and a <a href="https://github.com/ferdodo/cookies-ds">Github repo</a>.
+						</p>
+					</section>
+
+
+
+					<section id="installation">
+						<h5> Installation </h5>
+
+						<p>
+							Install with npm <code>npm i cookies-ds</code>.
+							Import to your project with <code>import "cookies-ds";</code>
+							which will initialize all the web components.
+						</p>
+					</section>
+
+
+
+					<section id="installation-no-bundler">
+						<h5> Installation without a javascript bundler </h5>
+
+						<p>
+							Directly use the file <b>cookies-ds.browser.min.js</b>
+							in your html web page. You can either build the library,
+							or download it from the <a href="https://www.npmjs.com/package/cookies-ds?activeTab=code">code section</a>
+							of the npm package, in the dist folder.
+						</p>
+
+						<p> Then use the script tag. </p>
+
+						<script>
+						    function htmlImportSetup () {
+						        return { 
+						        	get template() {
+						        		return `<head>\n\t<script src="cookies-ds.browser.min.js"></sc`+`ript>\n</head>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+						
+						<pre class="code" data-lang="HTML" x-data="htmlImportSetup()"><code x-html="coloredTemplate"></code></pre>
+					</section>
+
+					<section id="usage">
+						<h5> Usage </h5>
+						<p> Use it in your web page: </p>
+
+						<script>
+						    function htmlUsageSetup () {
+						        return { 
+						        	get template() {
+						        		return `<html>\n\t<head> ... </head>`
+						        			+ `\n\t<body>\n\t\t<cookies-p> Hello world ! </cookies-p>`
+						        			+ `\n\t</body>\n</html>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<pre class="code" data-lang="HTML" x-data="htmlUsageSetup()"><code x-html="coloredTemplate"></code></pre>
+						
+					</section>
+
+
+
+					<section id="padlock">
+						<h4 class="text-primary text-bold"> Components </h4>
+
+						<script>
+						    function lockSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-padlock \n`
+					        				+ (this.locked ? `	locked \n` : '')
+					        				+ (this.lockable ? `	lockable \n` : '')
+					        				+ `	@shackle-click="console.log"> \n`
+					        				+ `</cookies-padlock>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	},
+						        	get locked() {
+										return this.lockedSwitch ? true : null;
+						        	},
+						        	get lockable() {
+										return this.lockableSwitch ? true : null;
+						        	},
+						        	lockedSwitch: false,
+						        	lockableSwitch: false
+						        };
+						    }
+						</script>
+
+						<h5> Padlock </h5>
+						<p> Simple padlock with a clickable shackle that can be locked or unlocked. </p>
+
+						<div x-data="lockSetup()" class="panel">
+							<div class="panel-body" style="padding: 1rem;">
+								<cookies-padlock 
+									x-bind:locked="locked"
+									x-bind:lockable="lockable" 
+									x-on:shackle-click="console.log" 
+									style="width: 5rem;">
+								</cookies-padlock>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="lockedSwitch">
+						  			<i class="form-icon"></i> Locked
+						  		</label>
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="lockableSwitch">
+						  			<i class="form-icon"></i> lockable
+						  		</label>
+						  	</div>
+						</div>
+					</section>
+
+
+
+					<section id="smart-padlock">
+						<script>
+						    function smartLockSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-smart-padlock \n`
+					        				+ (this.locked ? `	locked \n` : '')
+					        				+ (this.lockable ? `	lockable \n` : '')
+					        				+ (this.unlockable ? `	unlockable \n` : '')
+					        				+ (this.code ? `	code="${ this.code }" \n` : '')
+					        				+ `	release-timestamp="${ this.releaseTimestampInput }" \n`
+							        		+ `	@shackle-click="console.log">\n`
+						        			+ `</cookies-smart-padlock>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	},
+						        	get locked() {
+										return this.lockedSwitch ? true : null;
+						        	},
+						        	get lockable() {
+										return this.lockableSwitch ? true : null;
+						        	},
+						        	get unlockable() {
+										return this.unlockableSwitch ? true : null;
+						        	},
+						        	get code() {
+						        		if (this.codeSelect === "n/a") {
+						        			return null;
+						        		} else {
+						        			return this.codeSelect;
+						        		}
+						        	},
+						        	lockedSwitch: false,
+						        	lockableSwitch: false,
+						        	codeSelect: null,
+						        	unlockableSwitch: false,
+						        	releaseTimestampInput: 12345678999
+						        };
+						    }
+						</script>
+
+						<h5> Smart Padlock </h5>
+						<p> Complex padlock with combinations, and digital screens. </p>
+
+						<div x-data="smartLockSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<cookies-smart-padlock style="width:9rem; height: 9rem"
+									x-bind:locked="locked"
+									x-bind:lockable="lockable"
+									x-bind:unlockable="unlockable"
+									x-bind:code="code"
+									x-bind:release-timestamp="releaseTimestampInput"
+									x-on:shackle-click="console.log">
+								</cookies-smart-padlock>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+								<select class="form-select" x-model="codeSelect">
+									<option> n/a </option>
+									<option> ? </option>
+									<option> 00000 </option>
+									<option> 12345 </option>
+									<option> 98765 </option>
+									<option> 74563 </option>
+									<option> error </option>
+								</select>
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="lockedSwitch">
+						  			<i class="form-icon"></i> Locked
+						  		</label>
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="lockableSwitch">
+						  			<i class="form-icon"></i> Lockable
+						  		</label>
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="unlockableSwitch">
+						  			<i class="form-icon"></i> Unlockable
+						  		</label>
+
+								<label class="form-label"> Release timestamp </label>
+						  		<input class="form-input" type="number" x-model="releaseTimestampInput"></input>
+						  	</div>
+						</div>
+					</section>
+					
+
+
+					<section id="wheel">
+						<script>
+						    function wheelSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-wheel` 
+						        			+ (this.numberAttr ? ` number="${ this.numberAttr }"` : '') 
+						        			+ (this.unlockable ? ` unlockable ` : '') + `></cookies-wheel>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	},
+						        	get unlockable() {
+										return this.unlockableSwitch ? true : null;
+						        	},
+						        	get numberAttr() {
+						        		if (this.numberSelect === "n/a") {
+						        			return null;
+						        		} else {
+						        			return this.numberSelect;
+						        		}
+						        	},
+						        	unlockableSwitch: false,
+						        	numberSelect: null
+						        };
+						    }
+						</script>
+						
+						<h5> Wheel </h5>
+						<p> Number wheel for a combination padlock. </p>
+
+						<div x-data="wheelSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<cookies-wheel x-bind:number="numberAttr" x-bind:unlockable="unlockable" style="width: 8rem; height: 3rem"></cookies-smart-padlock>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+
+								<select class="form-select" x-model="numberSelect">
+									<option> n/a </option>
+									<option> ? </option>
+									<option> 0 </option>
+									<option> 1 </option>
+									<option> 2 </option>
+									<option> 3 </option>
+									<option> 4 </option>
+									<option> 5 </option>
+									<option> 6 </option>
+									<option> 7 </option>
+									<option> 8 </option>
+									<option> 9 </option>
+								</select>
+
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="unlockableSwitch">
+						  			<i class="form-icon"></i> Unlockable
+						  		</label>
+						  	</div>
+						</div>
+					</section>
+
+
+
+
+					<section id="lcd-screen">					
+						<script>
+						    function lcdScreenSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-lcd-screen></cookies-lcd-screen>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> Lcd Screen </h5>
+						<p> Simple Lcd digital screen. </p>
+
+						<div x-data="lcdScreenSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<div style="width: 12rem; height: 12rem; resize: both; overflow: scroll; padding: 2rem">
+									<cookies-lcd-screen style="width: 100%; height: 100%"></cookies-lcd-screen>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+
+					<section id="padlock-screen">					
+						<script>
+						    function padlockScreenSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-padlock-screen`
+						        			+ ` release-timestamp="${ this.releaseTimestampInput }"` 
+						        			+ `</cookies-padlock-screen>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	},
+						        	releaseTimestampInput: 123456789
+						        };
+						    }
+						</script>
+
+						<h5> Padlock Screen </h5>
+						<p> Padlock Digital screen containing release date. </p>
+
+						<div x-data="padlockScreenSetup()" class="panel">
+
+							<div class="panel-body" style="padding: 0.8rem">
+								<div style="width: 12rem; height: 8rem; resize: both; overflow: scroll; padding: 2rem">
+									<cookies-padlock-screen x-bind:release-timestamp="releaseTimestampInput" style="width: 100%; height: 100%"></cookies-padlock-screen>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+
+								<label class="form-label"> Release timestamp </label>
+								<input class="form-input" type="number" x-model="releaseTimestampInput"></input>
+						  	</div>
+						</div>
+					</section>
+
+
+
+					<section id="background">
+						<script>
+						    function backgroundSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-background></cookies-background>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> Background </h5>
+						<p> A simple background. With cookies.</p>
+
+						<div x-data="backgroundSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<div style="width: 40rem; height: 30rem; resize: both; overflow: scroll; padding: 2rem">
+									<cookies-background style="width: 100%; height: 100%"></cookies-background>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+
+
+					<section id="panel">					
+						<script>
+						    function panelSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-panel></cookies-panel>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> Panel </h5>
+						<p> A simple panel with blurry transparency effect. </p>
+
+						<div x-data="panelSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<div style="width: 20rem; height: 15rem; resize: both; overflow: scroll; background-image: linear-gradient(45deg, #98CD8D 25%, #F6F0CF 25%, #F6F0CF 50%, #98CD8D 50%, #98CD8D 75%, #F6F0CF 75%, #F6F0CF 100%); background-size: 56.57px 56.57px;">
+									<cookies-panel style="width: 100%; height: 100%">
+									</cookies-panel>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+
+
+					<section id="h1">
+						<script>
+						    function h1Setup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-h1> This is a title. </cookies-h1>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> H1 </h5>
+						<p> Big title. </p>
+
+						<div x-data="h1Setup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<cookies-h1> This is a title. </cookies-h1>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+					
+					<section id="p">
+
+						<script>
+						    function pSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-p> This is a paragraph. </cookies-p>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> P </h5>
+						<p> A paragraph. </p>
+
+						<div x-data="pSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<cookies-p> This is a paragraph. </cookies-p>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+					<section id="a">
+
+						<script>
+						    function aSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-a href="http://example.org"> link to example.org </cookies-a>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> A </h5>
+						<p> A link. </p>
+
+						<div x-data="aSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<cookies-a href="http://example.org"> link to example.org </cookies-a>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+					<section id="info">
+						<script>
+						    function infoSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-info ${ this.visitedSwitch ? "visited" : "" }></cookies-info>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	},
+						        	get visited () {
+						        		return this.visitedSwitch ? true : null;
+						        	},
+						        	visitedSwitch: false
+						        };
+						    }
+						</script>
+
+						<h5> Info </h5>
+						<p> An infomation icon. </p>
+						<div x-data="infoSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<div style="width: 8rem; height: 8rem; resize: both; overflow: scroll;">
+									<cookies-info x-bind:visited="visited" style="width: 80%; height: 80%"></cookies-info>
+								</div>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="visitedSwitch">
+						  			<i class="form-icon"></i> Visited
+						  		</label>
+						  	</div>
+						</div>
+					</section>
+
+
+
+					<section id="datetime-picker">
+						<script>
+						    function datetimePickerSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-datetime-picker  @change="console.log"> </cookies-datetime-picker>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> Datetime Picker </h5>
+						<p> Non bindable input that to pick date and time. </p>
+
+						<div x-data="datetimePickerSetup()" class="panel">
+
+							<div class="panel-body">
+								<cookies-datetime-picker x-on:change="console.log"></cookies-datetime-picker>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+					<section id="breadcrumbs">
+						<script>
+						    function breadcrumbsSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-breadcrumbs><span>main</span><span>page</span><span>subpage</span></cookies-breadcrumbs>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> Breadcrumbs </h5>
+						<p> Breadcrumb component to display the current navigation state. </p>
+						<div x-data="breadcrumbsSetup()" class="panel">
+							<div class="panel-body">
+									<cookies-breadcrumbs>
+										<span>main</span>
+										<span>page</span>
+										<span>subpage</span>
+									</cookies-breadcrumbs>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+					<section id="snackbar-dock">
+						<script>
+						    function snackbarDockSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-snackbar-dock></cookies-snackbar-dock>`;
+						        	},
+						        	get templateJs() {
+						        		return `import { enqueueSnackbar } from "cookies-ds";\n\n`
+						        			+ `enqueueSnackbar("Hello there !");`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	},
+						        	get coloredTemplateJs() {
+										return hljs.highlight(this.templateJs, {language: 'js'}).value;
+									}
+						        };
+						    }
+						</script>
+
+						<h5> Snackbar dock </h5>
+						<p> Include the snackbar dock only once in your page. Then send messages from JavaScript. </p>
+
+						<div x-data="snackbarDockSetup()" class="panel">
+							<div class="panel-body">
+									<cookies-snackbar-dock></cookies-snackbar-dock>
+									<button class="btn" x-on:click="enqueueSnackbar({ message: 'Random number -> ' + Math.random() })"> enqueue a message </button>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+								<pre class="code" data-lang="JavaScript"><code x-html="coloredTemplateJs"></code></pre>
+						  	</div>
+						</div>
+					</section>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
