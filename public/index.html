@@ -50,6 +50,7 @@
 							<li class="nav-item"><a href="#datetime-picker"> Datetime Picker </a></li>
 							<li class="nav-item"><a href="#breadcrumbs"> Breadcrumbs </a></li>
 							<li class="nav-item"><a href="#snackbar-dock"> Snackbar Dock </a></li>
+							<li class="nav-item"><a href="#button"> Button </a></li>
 						</ul>
 					</ul>
 				</div>
@@ -695,6 +696,36 @@
 							<div class="panel-footer">
 								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
 								<pre class="code" data-lang="JavaScript"><code x-html="coloredTemplateJs"></code></pre>
+						  	</div>
+						</div>
+					</section>
+
+
+
+					<section id="button">
+
+						<script>
+						    function buttonSetup () {
+						        return { 
+						        	get template() {
+						        		return `<cookies-button> A button </cookies-button>`;
+						        	},
+						        	get coloredTemplate() {
+						        		return hljs.highlight(this.template, {language: 'xml'}).value;
+						        	}
+						        };
+						    }
+						</script>
+
+						<h5> Button </h5>
+						<p> A button. </p>
+
+						<div x-data="buttonSetup()" class="panel">
+							<div class="panel-body" style="padding: 0.8rem">
+								<cookies-button> A button </cookies-button>
+							</div>
+							<div class="panel-footer">
+								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
 						  	</div>
 						</div>
 					</section>
