@@ -708,11 +708,15 @@
 						    function buttonSetup () {
 						        return { 
 						        	get template() {
-						        		return `<cookies-button> A button </cookies-button>`;
+						        		return `<cookies-button${ this.confetti ? ' confetti': ''}> A button </cookies-button>`;
 						        	},
 						        	get coloredTemplate() {
 						        		return hljs.highlight(this.template, {language: 'xml'}).value;
-						        	}
+						        	},
+						        	get confetti() {
+										return this.confettiSwitch ? true : null;
+						        	},
+						        	confettiSwitch: false
 						        };
 						    }
 						</script>
@@ -722,10 +726,15 @@
 
 						<div x-data="buttonSetup()" class="panel">
 							<div class="panel-body" style="padding: 0.8rem">
-								<cookies-button> A button </cookies-button>
+								<cookies-button x-bind:confetti="confetti"> A button </cookies-button>
 							</div>
 							<div class="panel-footer">
 								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+
+								<label class="form-switch">
+						  			<input type="checkbox" x-model="confettiSwitch">
+						  			<i class="form-icon"></i> Confetti
+						  		</label>
 						  	</div>
 						</div>
 					</section>
