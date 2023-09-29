@@ -9,7 +9,7 @@
   "devDependencies": {
     "alpinejs": "^3.11.1",
     "concurrently": "^7.6.0",
-    "cookies-ds": "^1.0.5",
+    "cookies-ds": "^1.0.6",
     "esbuild": "^0.17.3",
     "highlight.js": "^11.7.0",
     "spectre.css": "^0.5.9",
