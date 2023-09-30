@@ -52103,7 +52103,7 @@
   }
 
   // node_modules/cookies-ds/dist/components/panel/template.js
-  var template_default7 = '<style>\n	:host {\n		display: block;\n	}\n\n	#panel-container {\n		display: grid;\n		grid-column-gap: 0px;\n		grid-row-gap: 0px;\n		transition: grid-template-columns .5s cubic-bezier(.12,1.03,.11,.99), grid-template-rows .5s cubic-bezier(.12,1.03,.11,.99);\n		height: 100%;\n	}\n\n	#panel {\n		backdrop-filter: blur(0.3rem);\n		border-radius: 0.3rem;\n		padding: 1.7rem;\n		grid-area: 2 / 2 / 3 / 3;\n		background-color: #ffffff00;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n		transition: background-color .5s cubic-bezier(.12,1.03,.11,.99);\n		color: black;\n		overflow: auto;\n	}\n\n	#panel-content {\n		visibility: collapse;\n		transition: opacity 1s cubic-bezier(.12,1.03,.11,.99);\n		overflow: hidden;\n	}\n\n	* {\n		scrollbar-width: auto;\n		scrollbar-color: #ffffff90 #ffffff00;\n	}\n\n	*::-webkit-scrollbar {\n		width: 8px;\n	}\n\n	*::-webkit-scrollbar-track {\n		background: #ffffff00;\n	}\n\n	*::-webkit-scrollbar-thumb {\n		background-color: #ffffff90;\n		border-radius: 10px;\n		border: 3px solid #ffffff00;\n	}\n</style>\n\n<div id="panel-container" style="grid-template-columns: 20% 1fr 20%; grid-template-rows: 1rem 1fr 40%;">\n	<div id="panel">\n		<div id="panel-content" style="opacity: 0;">\n			<slot></slot>\n		</div>\n	</div>\n</div>\n';
+  var template_default7 = '<style>\n	:host {\n		display: block;\n	}\n\n	#panel-container {\n		display: grid;\n		grid-column-gap: 0px;\n		grid-row-gap: 0px;\n		transition: grid-template-columns .5s cubic-bezier(.12,1.03,.11,.99), grid-template-rows .5s cubic-bezier(.12,1.03,.11,.99);\n		height: 100%;\n	}\n\n	#panel {\n		border-radius: 0.3rem;\n		padding: 1.7rem;\n		grid-area: 2 / 2 / 3 / 3;\n		background-color: #ffffff00;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n		transition: background-color .5s cubic-bezier(.12,1.03,.11,.99);\n		color: black;\n		overflow: auto;\n		position: relative;\n	}\n\n	#panel-content {\n		visibility: collapse;\n		transition: opacity 1s cubic-bezier(.12,1.03,.11,.99);\n		overflow: hidden;\n		z-index: 1;\n		position: relative;\n	}\n\n	#panel-loading-container {\n		grid-area: 2 / 2 / 3 / 3;\n		overflow: hidden;\n		backdrop-filter: blur(0.3rem);\n	}\n\n	#panel-loading {\n		border-radius: 0.3rem;\n		width: 75%;\n		height: 100%;\n		background-color: #ffffff55;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n\n		transition-duration: 1s;\n		transition-timing-function: cubic-bezier(.17,.84,.44,1);\n		transition-delay: 0s;\n		transition-property: width, background-color;\n\n		color: black;\n		overflow: auto;\n\n		position: relative;\n	}\n\n	* {\n		scrollbar-width: auto;\n		scrollbar-color: #ffffff90 #ffffff00;\n	}\n\n	*::-webkit-scrollbar {\n		width: 8px;\n	}\n\n	*::-webkit-scrollbar-track {\n		background: #ffffff00;\n	}\n\n	*::-webkit-scrollbar-thumb {\n		background-color: #ffffff90;\n		border-radius: 10px;\n		border: 3px solid #ffffff00;\n	}\n</style>\n\n<div id="panel-container" style="grid-template-columns: 20% 1fr 20%; grid-template-rows: 1rem 1fr 40%;">\n	<div id="panel-loading-container">\n		<div id="panel-loading"></div>\n	</div>\n\n	<div id="panel">\n		<div id="panel-content" style="opacity: 0;">\n			<slot></slot>\n		</div>\n	</div>\n</div>\n';
 
   // node_modules/cookies-ds/dist/utils/app-ready.js
   var __awaiter5 = function(thisArg, _arguments, P2, generator) {
@@ -52191,6 +52191,16 @@
   var templateNode7 = document.createElement("template");
   templateNode7.innerHTML = template_default7;
   var Panel = class extends HTMLElement {
+    constructor() {
+      super(...arguments);
+      this.contentTimeoutElapsed = false;
+      this.contentLoaded = false;
+      this.connected = false;
+      this.loading = "100";
+    }
+    static get observedAttributes() {
+      return ["loading"];
+    }
     connectedCallback() {
       return __awaiter6(this, void 0, void 0, function* () {
         this.attachShadow({ mode: "open" });
@@ -52198,22 +52208,61 @@
         const release2 = yield acquireAnimationLock();
         const shadowRoot = getShadowRoot(this);
         shadowRoot.appendChild(templateNode7.content.cloneNode(true));
-        setTimeout(function() {
+        const loading = this.getAttribute("loading");
+        if (loading !== null && isLoadingValid(loading)) {
+          this.loading = loading;
+        }
+        setTimeout(() => {
           const panelContainer = getElement(shadowRoot, "#panel-container");
           panelContainer.style.gridTemplateColumns = "1rem 1fr 1rem";
           panelContainer.style.gridTemplateRows = "1rem 1fr 1rem";
           const panel = getElement(shadowRoot, "#panel");
-          panel.style.backgroundColor = "#ffffff80";
+          panel.style.backgroundColor = "#ffffff40";
+          this.render();
         }, 10);
-        setTimeout(function() {
-          const panelContent = getElement(shadowRoot, "#panel-content");
-          panelContent.style.visibility = "visible";
-          panelContent.style.opacity = "1";
+        setTimeout(() => {
+          this.contentTimeoutElapsed = true;
+          this.render();
         }, 400);
         setTimeout(release2, 600);
+        this.connected = true;
+        this.render();
       });
     }
+    render() {
+      const shadowRoot = getShadowRoot(this);
+      const panelContent = getElement(shadowRoot, "#panel-content");
+      const panelLoading = getElement(shadowRoot, "#panel-loading");
+      const panel = getElement(shadowRoot, "#panel");
+      if (this.contentTimeoutElapsed && isLoaded(this.loading)) {
+        panelContent.style.visibility = "visible";
+        panelContent.style.opacity = "1";
+        panel.style.overflow = "auto";
+      } else {
+        panelContent.style.visibility = "collapse";
+        panelContent.style.opacity = "0";
+        panel.style.overflow = "hidden";
+      }
+      panelLoading.style.width = `${this.loading}%`;
+    }
+    attributeChangedCallback() {
+      if (this.shadowRoot && this.connected) {
+        const loading = this.getAttribute("loading");
+        if (loading !== null && isLoadingValid(loading)) {
+          this.loading = loading;
+        }
+        this.render();
+      }
+    }
   };
+  function isLoadingValid(loading) {
+    const loadingAsNumber = Number(loading);
+    const rounded = Math.floor(loadingAsNumber);
+    return rounded == loadingAsNumber && Number.isInteger(rounded) && Number.isFinite(rounded) && rounded <= 100 && rounded >= 0;
+  }
+  function isLoaded(loading) {
+    return loading === null || loading === "100";
+  }
 
   // node_modules/cookies-ds/dist/components/p/template.js
   var template_default8 = "<style>\n	:host {\n		display: block;\n	}\n\n	p {\n		font-family: ds-notes-sans;\n		font-size: 1rem;\n		color: black;\n	}\n\n	@media screen and (min-width: 800px) {\n		p {\n			font-size: 1.4rem;\n		}\n	}\n</style>\n\n<p><slot></slot></p>\n";
