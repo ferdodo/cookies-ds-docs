@@ -451,11 +451,12 @@
 						    function panelSetup () {
 						        return { 
 						        	get template() {
-						        		return `<cookies-panel></cookies-panel>`;
+						        		return `<cookies-panel loading="${ this.progress }"></cookies-panel>`;
 						        	},
 						        	get coloredTemplate() {
 						        		return hljs.highlight(this.template, {language: 'xml'}).value;
-						        	}
+						        	},
+						        	progress: 50
 						        };
 						    }
 						</script>
@@ -466,12 +467,16 @@
 						<div x-data="panelSetup()" class="panel">
 							<div class="panel-body" style="padding: 0.8rem">
 								<div style="width: 20rem; height: 15rem; resize: both; overflow: scroll; background-image: linear-gradient(45deg, #98CD8D 25%, #F6F0CF 25%, #F6F0CF 50%, #98CD8D 50%, #98CD8D 75%, #F6F0CF 75%, #F6F0CF 100%); background-size: 56.57px 56.57px;">
-									<cookies-panel style="width: 100%; height: 100%">
+									<cookies-panel style="width: 100%; height: 100%" x-bind:loading="progress">
+										<cookies-h1> Example panel </cookies-h1>
+										<cookies-p> Some example panel content </cookies-p>
 									</cookies-panel>
 								</div>
 							</div>
 							<div class="panel-footer">
 								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+								<label> progress </label>
+								<input class="slider" x-model="progress" type="range" min="0" max="100" value="50">
 						  	</div>
 						</div>
 					</section>

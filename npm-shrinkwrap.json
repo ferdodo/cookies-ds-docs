@@ -7,7 +7,7 @@
       "devDependencies": {
         "alpinejs": "^3.11.1",
         "concurrently": "^7.6.0",
-        "cookies-ds": "^1.0.6",
+        "cookies-ds": "^1.0.7",
         "esbuild": "^0.17.3",
         "highlight.js": "^11.7.0",
         "spectre.css": "^0.5.9",
@@ -503,9 +503,9 @@
       }
     },
     "node_modules/cookies-ds": {
-      "version": "1.0.6",
-      "resolved": "https://registry.npmjs.org/cookies-ds/-/cookies-ds-1.0.6.tgz",
-      "integrity": "sha512-fmiGuM8Co+m12tdPfWvwLeJiPyJofBOhBegViISwo53aFoOwVTT8o3If31bL6sezWfuImXsGn43mZqoy84h+LQ==",
+      "version": "1.0.7",
+      "resolved": "https://registry.npmjs.org/cookies-ds/-/cookies-ds-1.0.7.tgz",
+      "integrity": "sha512-gIsN2xDHx8J0NRKSjHza8Z89Of4AKf9PdFMvqJe0nkZXmeSOLKYb+93KRP1DutgsR4wsEI4gURC0X6GskPzGHg==",
       "dev": true,
       "hasShrinkwrap": true,
       "dependencies": {
