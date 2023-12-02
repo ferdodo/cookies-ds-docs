@@ -694,7 +694,7 @@
 						        	},
 						        	get templateJs() {
 						        		return `import { enqueueSnackbar } from "cookies-ds";\n\n`
-						        			+ `enqueueSnackbar("Hello there !");`;
+						        			+ `enqueueSnackbar({ message: "Hello there !" });`;
 						        	},
 						        	get coloredTemplate() {
 						        		return hljs.highlight(this.template, {language: 'xml'}).value;
