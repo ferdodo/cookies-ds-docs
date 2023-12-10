@@ -1,4 +1,5 @@
 {
+  "name": "cookies-ds-docs",
   "scripts": {
     "build": "make && tsc",
     "start": "concurrently npm:start:*",
