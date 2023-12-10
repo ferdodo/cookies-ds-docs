@@ -7,17 +7,7 @@
 		<link rel="stylesheet" href="spectre.min.css">
 		<link rel="stylesheet" href="spectre-exp.min.css">
 		<link rel="stylesheet" href="github.css">
-
-		<style>
-			section {
-				margin-bottom: 3rem;
-				max-width: 30rem;
-			}
-
-			h3, h4, h5 {
-				font-size: 1.5em;
-			}
-		</style>
+		<link rel="stylesheet" href="../style.css">
 	</head>
 
 	<body style="height: 100%;">
@@ -724,40 +714,7 @@
 
 
 					<section id="button">
-
-						<script>
-						    function buttonSetup () {
-						        return { 
-						        	get template() {
-						        		return `<cookies-button${ this.confetti ? ' confetti': ''}> A button </cookies-button>`;
-						        	},
-						        	get coloredTemplate() {
-						        		return hljs.highlight(this.template, {language: 'xml'}).value;
-						        	},
-						        	get confetti() {
-										return this.confettiSwitch ? true : null;
-						        	},
-						        	confettiSwitch: false
-						        };
-						    }
-						</script>
-
-						<h5> Button </h5>
-						<p> A button. </p>
-
-						<div x-data="buttonSetup()" class="panel">
-							<div class="panel-body" style="padding: 0.8rem">
-								<cookies-button x-bind:confetti="confetti"> A button </cookies-button>
-							</div>
-							<div class="panel-footer">
-								<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
-
-								<label class="form-switch">
-						  			<input type="checkbox" x-model="confettiSwitch">
-						  			<i class="form-icon"></i> Confetti
-						  		</label>
-						  	</div>
-						</div>
+						<iframe style="height: 20rem;" src="/components/button.html" seamless></iframe>
 					</section>
 				</div>
 			</div>

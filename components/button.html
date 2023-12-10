@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html style="height: 100%;">
+	<head>
+		<title> cookies-ds docs </title>
+		<meta charset="utf-8">
+		<link rel="icon" href="data:;base64,iVBORw0KGgo=">
+		<link rel="stylesheet" href="../spectre.min.css">
+		<link rel="stylesheet" href="../spectre-exp.min.css">
+		<link rel="stylesheet" href="../github.css">
+		<link rel="stylesheet" href="../style.css">
+	</head>
+
+	<body style="height: 100%;">
+		<script type="module" src="../main.js"></script>
+
+		<script>
+		    function buttonSetup () {
+		        return { 
+		        	get template() {
+		        		return `<cookies-button${ this.confetti ? ' confetti': ''}> A button </cookies-button>`;
+		        	},
+		        	get coloredTemplate() {
+		        		return hljs.highlight(this.template, {language: 'xml'}).value;
+		        	},
+		        	get confetti() {
+						return this.confettiSwitch ? true : null;
+		        	},
+		        	confettiSwitch: false
+		        };
+		    }
+		</script>
+
+		<h5> Button </h5>
+		<p> A button. </p>
+
+		<div x-data="buttonSetup()" class="panel">
+			<div class="panel-body" style="padding: 0.8rem">
+				<cookies-button x-bind:confetti="confetti"> A button </cookies-button>
+			</div>
+			<div class="panel-footer">
+				<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+
+				<label class="form-switch">
+		  			<input type="checkbox" x-model="confettiSwitch">
+		  			<i class="form-icon"></i> Confetti
+		  		</label>
+		  	</div>
+		</div>
+
+	</body>
+</html>
