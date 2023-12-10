@@ -1,0 +1,13 @@
+section {
+	margin-bottom: 3rem;
+	max-width: 30rem;
+}
+
+h3, h4, h5 {
+	font-size: 1.5em;
+}
+
+iframe {
+	border: none;
+	width: 100%;
+}
