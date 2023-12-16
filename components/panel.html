@@ -17,9 +17,10 @@
 		    function panelSetup () {
 		        return { 
 		        	get template() {
-		        		return this.progressEnabled
-		        			? `<cookies-panel loading="${ this.progress }"></cookies-panel>`
-		        			: `<cookies-panel></cookies-panel>`;
+		        		return `<cookies-panel`
+		        			+ (this.progressEnabled ? ` loading="${ this.progress }"` : '')
+		        			+ (this.titleEnabled ? ` panel-title="${ this.title }"` : '')
+		        			+ "></cookies-panel>";
 		        	},
 		        	get coloredTemplate() {
 		        		return hljs.highlight(this.template, {language: 'xml'}).value;
@@ -31,8 +32,17 @@
 		        			return null;
 		        		}
 		        	},
-		        	progress: 50,
-		        	progressEnabled: true
+		        	get titleAttribute() {
+		        		if (this.titleEnabled) {
+		        			return this.title;
+		        		} else {
+		        			return null;
+		        		}
+		        	},
+		        	progress: 0,
+		        	progressEnabled: false,
+		        	titleEnabled: true,
+		        	title: "A very nice panel"
 		        };
 		    }
 		</script>
@@ -43,8 +53,7 @@
 		<div x-data="panelSetup()" class="panel">
 			<div class="panel-body" style="padding: 0.8rem">
 				<div style="width: 20rem; height: 15rem; resize: both; overflow: scroll; background-image: linear-gradient(45deg, #98CD8D 25%, #F6F0CF 25%, #F6F0CF 50%, #98CD8D 50%, #98CD8D 75%, #F6F0CF 75%, #F6F0CF 100%); background-size: 56.57px 56.57px;">
-					<cookies-panel style="width: 100%; height: 100%" x-bind:loading="progressAttribute">
-						<cookies-h1> Example panel </cookies-h1>
+					<cookies-panel style="width: 100%; height: 100%" x-bind:loading="progressAttribute" x-bind:panel-title="titleAttribute">
 						<cookies-p> Some example panel content </cookies-p>
 					</cookies-panel>
 				</div>
@@ -53,11 +62,19 @@
 				<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
 
 				<label class="form-switch">
+		  			<input type="checkbox" x-model="titleEnabled">
+		  			<i class="form-icon"></i> Enable title
+		  		</label>
+				
+				<label> Title </label>
+				<input x-model="title">
+
+				<label class="form-switch">
 		  			<input type="checkbox" x-model="progressEnabled">
 		  			<i class="form-icon"></i> Enable progress
 		  		</label>
 				
-				<label> progress </label>
+				<label> Progress </label>
 				<input class="slider" x-model="progress" type="range" min="0" max="100" value="50">
 		  	</div>
 		</div>
