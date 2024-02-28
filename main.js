@@ -52039,7 +52039,7 @@
   }
 
   // node_modules/cookies-ds/dist/components/panel/template.js
-  var template_default7 = '<style>\n	:host {\n		display: block;\n	}\n\n	#panel-container {\n		display: grid;\n		grid-column-gap: 0px;\n		grid-row-gap: 0px;\n		transition: grid-template-columns .5s cubic-bezier(.12,1.03,.11,.99), grid-template-rows .5s cubic-bezier(.12,1.03,.11,.99);\n		height: 100%;\n	}\n\n	#panel {\n		border-radius: 0.3rem;\n		padding: 1.7rem;\n		grid-area: 2 / 2 / 3 / 3;\n		background-color: #ffffff00;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n		transition: background-color .5s cubic-bezier(.12,1.03,.11,.99);\n		color: black;\n		overflow: auto;\n		position: relative;\n	}\n\n	#panel-title-container {\n		grid-area: 2 / 2 / 3 / 3;\n		z-index: 1;\n	}\n\n	#panel-content {\n		visibility: collapse;\n		transition: opacity 1s cubic-bezier(.12,1.03,.11,.99);\n		overflow: hidden;\n		z-index: 1;\n		position: relative;\n	}\n\n	#panel-loading-container {\n		grid-area: 2 / 2 / 3 / 3;\n		overflow: hidden;\n		backdrop-filter: blur(0.3rem);\n	}\n\n	#panel-title {\n		background: linear-gradient(0deg, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.44) 100%);\n		display: inline-block;\n		border-radius: 0.3rem;\n		padding-left: 1rem;\n		padding-right: 1rem;\n		opacity: 0;\n		transition-duration: 0.8s;\n		transition-timing-function: cubic-bezier(.17,.84,.44,1);\n		transition-delay: 0.4s;\n		transition-property: opacity;\n	}\n\n	#panel-loading {\n		border-radius: 0.3rem;\n		width: 75%;\n		height: 100%;\n		background-color: #ffffff55;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n\n		transition-duration: 1s;\n		transition-timing-function: cubic-bezier(.17,.84,.44,1);\n		transition-delay: 0s;\n		transition-property: width, background-color;\n\n		color: black;\n		overflow: auto;\n\n		position: relative;\n	}\n\n	* {\n		scrollbar-width: auto;\n		scrollbar-color: #ffffff90 #ffffff00;\n	}\n\n	*::-webkit-scrollbar {\n		width: 8px;\n	}\n\n	*::-webkit-scrollbar-track {\n		background: #ffffff00;\n	}\n\n	*::-webkit-scrollbar-thumb {\n		background-color: #ffffff90;\n		border-radius: 10px;\n		border: 3px solid #ffffff00;\n	}\n</style>\n\n<div id="panel-container" style="grid-template-columns: 20% 1fr 20%; grid-template-rows: 1rem 1fr 40%;">\n	<div id="panel-loading-container">\n		<div id="panel-loading"></div>\n	</div>\n\n	<div id="panel">\n		<div id="panel-content" style="opacity: 0;">\n			<slot></slot>\n		</div>\n	</div>\n\n	<div id="panel-title-container">\n		<div id="panel-title">\n			<cookies-p style="line-height: 0;">\n				<b id="panel-title-content"> </b>\n			</cookies-p>\n		</div>\n	</div>\n</div>\n';
+  var template_default7 = '<style>\n	:host {\n		display: block;\n	}\n\n	#panel-container {\n		display: grid;\n		grid-column-gap: 0px;\n		grid-row-gap: 0px;\n		transition: grid-template-columns .5s cubic-bezier(.12,1.03,.11,.99), grid-template-rows .5s cubic-bezier(.12,1.03,.11,.99);\n		height: 100%;\n	}\n\n	#panel {\n		border-radius: 0.3rem;\n		padding: 1.7rem;\n		grid-area: 2 / 2 / 3 / 3;\n		background-color: #ffffff00;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n		transition: background-color .5s cubic-bezier(.12,1.03,.11,.99);\n		color: black;\n		overflow: auto;\n		position: relative;\n	}\n\n	#panel-title-container {\n		grid-area: 2 / 2 / 3 / 3;\n		z-index: 0;\n	}\n\n	#panel-content {\n		visibility: collapse;\n		transition: opacity 1s cubic-bezier(.12,1.03,.11,.99);\n		overflow: hidden;\n		z-index: 1;\n		position: relative;\n	}\n\n	#panel-loading-container {\n		grid-area: 2 / 2 / 3 / 3;\n		overflow: hidden;\n		backdrop-filter: blur(0.3rem);\n	}\n\n	#panel-title {\n		background: linear-gradient(0deg, rgba(255, 255, 255, 0.46) 0%, rgba(255, 255, 255, 0.44) 100%);\n		display: inline-block;\n		border-radius: 0.3rem;\n		padding-left: 1rem;\n		padding-right: 1rem;\n		opacity: 0;\n		transition-duration: 0.2s;\n		transition-timing-function: cubic-bezier(.12,1.03,.11,.99);\n		transition-delay: 0.4s;\n		transition-property: opacity;\n	}\n\n	#panel-loading {\n		border-radius: 0.3rem;\n		width: 75%;\n		height: 100%;\n		background-color: #ffffff55;\n		box-shadow: 0px 0px 9px 5px rgba(28, 44, 83, 0.04);\n\n		transition-duration: 1s;\n		transition-timing-function: cubic-bezier(.17,.84,.44,1);\n		transition-delay: 0s;\n		transition-property: width, background-color;\n\n		color: black;\n		overflow: auto;\n\n		position: relative;\n	}\n\n	* {\n		scrollbar-width: auto;\n		scrollbar-color: #ffffff90 #ffffff00;\n	}\n\n	*::-webkit-scrollbar {\n		width: 8px;\n	}\n\n	*::-webkit-scrollbar-track {\n		background: #ffffff00;\n	}\n\n	*::-webkit-scrollbar-thumb {\n		background-color: #ffffff90;\n		border-radius: 10px;\n		border: 3px solid #ffffff00;\n	}\n</style>\n\n<div id="panel-container" style="grid-template-columns: 20% 1fr 20%; grid-template-rows: 1rem 1fr 40%;">\n	<div id="panel-loading-container">\n		<div id="panel-loading"></div>\n	</div>\n\n	<div id="panel">\n		<div id="panel-content" style="opacity: 0;">\n			<slot></slot>\n		</div>\n	</div>\n\n	<div id="panel-title-container">\n		<div id="panel-title">\n			<cookies-p style="line-height: 0;">\n				<b id="panel-title-content"> </b>\n			</cookies-p>\n		</div>\n	</div>\n</div>\n';
 
   // node_modules/cookies-ds/dist/utils/app-ready.js
   var __awaiter5 = function(thisArg, _arguments, P2, generator) {
@@ -52137,6 +52137,8 @@
       this.contentLoaded = false;
       this.connected = false;
       this.loading = "100";
+      this.scrolled = false;
+      this.scrolledSubscription = null;
     }
     static get observedAttributes() {
       return ["loading", "panel-title"];
@@ -52158,6 +52160,15 @@
           panelContainer.style.gridTemplateRows = "1rem 1fr 1rem";
           const panel = getElement(shadowRoot, "#panel");
           panel.style.backgroundColor = "#ffffff40";
+          this.scrolledSubscription = fromEvent(panel, "scroll").pipe(
+            map((e) => e.target.scrollTop),
+            // startWith(0),
+            map((scrollTop) => scrollTop !== 0)
+            // distinctUntilChanged()
+          ).subscribe((value) => {
+            this.scrolled = value;
+            this.render();
+          });
           this.render();
         }, 10);
         setTimeout(() => {
@@ -52186,7 +52197,7 @@
       }
       panelLoading.style.width = `${this.loading}%`;
       const panelTitle = getElement(shadowRoot, "#panel-title");
-      if (this.loading === "100" && this.getAttribute("panel-title")) {
+      if (this.loading === "100" && this.getAttribute("panel-title") && !this.scrolled) {
         setTimeout(() => {
           panelTitle.style.opacity = "1";
           panelTitleContent.innerHTML = this.getAttribute("panel-title") || "";
@@ -52207,6 +52218,10 @@
         }
         this.render();
       }
+    }
+    disconnectedCallback() {
+      var _a;
+      (_a = this.scrolledSubscription) === null || _a === void 0 ? void 0 : _a.unsubscribe();
     }
   };
   function isLoadingValid(loading) {
@@ -52809,7 +52824,7 @@
   };
 
   // node_modules/cookies-ds/dist/components/button/template.js
-  var template_default15 = '<style>\n	:host {\n		display: inline-block;\n	}\n\n	button {\n		font-family: ds-notes-sans;\n		font-size: 1rem;\n		display: grid;\n		place-content: center;\n	}\n\n	@media screen and (min-width: 800px) {\n		button {\n			font-size: 1.4rem;\n		}\n	}\n\n	/* \u2764\uFE0F https://codepen.io/yuhomyan/pen/OJMejWJ */\n\n	.custom-btn {\n	  border-radius: 5px;\n	  padding: 10px 25px;\n	  font-weight: 500;\n	  background: transparent;\n	  cursor: pointer;\n	  transition: all 0.3s ease;\n	  position: relative;\n	   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),\n	   7px 7px 20px 0px rgba(0,0,0,.1),\n	   4px 4px 5px 0px rgba(0,0,0,.1);\n	  outline: none;\n	}\n\n	.btn-16 {\n	  border: none;\n	  color: #000;\n	}\n	.btn-16:after {\n	  position: absolute;\n	  content: "";\n	  width: 0;\n	  height: 100%;\n	  top: 0;\n	  left: 0;\n	  direction: rtl;\n	  z-index: -1;\n	  box-shadow: -1px -1px 5px 0px #fff0, -1px -1px 5px 0px #fff, 7px 7px 10px 0px #0002, 4px 4px 5px 0px #0001;\n	  transition: all 0.3s ease;\n	  border-radius: 5px;\n	  background-color: #fff3;\n	}\n	.btn-16:hover {\n	  color: #000;\n	}\n	.btn-16:hover:after {\n	  left: auto;\n	  right: 0;\n	  width: 100%;\n	}\n	.btn-16:active {\n	  top: 2px;\n	}\n\n\n</style>\n\n\n<div style="padding: 0.4rem">\n	<button class="custom-btn btn-16">\n		<slot></slot>\n	</button>\n</div>\n';
+  var template_default15 = '<style>\n	:host {\n		display: inline-block;\n	}\n\n	@media screen and (min-width: 800px) {\n		.custom-btn {\n			font-size: 1.4rem;\n		}\n	}\n\n	/* \u2764\uFE0F https://codepen.io/yuhomyan/pen/OJMejWJ */\n\n	.custom-btn {\n	  font-family: ds-notes-sans;\n	  font-size: 1rem;\n	  display: grid;\n	  place-content: center;\n	  border-radius: 5px;\n	  padding: 10px 25px;\n	  font-weight: 500;\n	  background: transparent;\n	  cursor: pointer;\n	  transition: all 0.3s ease;\n	  position: relative;\n	   box-shadow:inset 2px 2px 2px 0px rgba(255,255,255,.5),\n	   7px 7px 20px 0px rgba(0,0,0,.1),\n	   4px 4px 5px 0px rgba(0,0,0,.1);\n	  outline: none;\n	  grid-area: 2 / 2 / 3 / 3;\n	}\n\n	.btn-16 {\n	  border: none;\n	  color: #000;\n	}\n	.btn-16:after {\n	  position: absolute;\n	  content: "";\n	  width: 0;\n	  height: 100%;\n	  top: 0;\n	  left: 0;\n	  direction: rtl;\n	  z-index: -1;\n	  box-shadow: -1px -1px 5px 0px #fff0, -1px -1px 5px 0px #fff, 7px 7px 10px 0px #0002, 4px 4px 5px 0px #0001;\n	  transition: all 0.3s ease;\n	  border-radius: 5px;\n	  background-color: #fff3;\n	}\n	.btn-16:hover {\n	  color: #000;\n	}\n	.btn-16:hover:after {\n	  left: auto;\n	  right: 0;\n	  width: 100%;\n	}\n	.btn-16:active {\n	  top: 2px;\n	}\n\n	.button-container {\n		/*padding: 0.4rem;*/\n		display: grid;\n		grid-template-columns: 0.4rem 1fr 0.4rem;\n		grid-template-rows: 0.4rem 1fr 0.4rem; \n	}\n\n\n.progress-container {\n	grid-area: 2 / 2 / 3 / 3;\n}\n\n#progress {\n	background-color: #fff3;\n	height: 100%;\n	width: 0%;\n    border-radius: 5px;\n    transition: width 0.3s ease-in-out;\n}\n\n</style>\n\n\n<div class="button-container">\n	<div class="custom-btn btn-16">\n		<slot></slot>\n	</div>\n	<div class="progress-container">\n		<div id="progress"></div>\n	</div>\n</div>\n';
 
   // node_modules/cookies-ds/dist/components/button/index.js
   var __awaiter15 = function(thisArg, _arguments, P2, generator) {
@@ -52845,6 +52860,10 @@
     constructor() {
       super(...arguments);
       this.clickSubscription = null;
+      this.progress = "0";
+    }
+    static get observedAttributes() {
+      return ["progress"];
     }
     connectedCallback() {
       return __awaiter15(this, void 0, void 0, function* () {
@@ -52852,13 +52871,36 @@
         this.attachShadow({ mode: "open" });
         const shadowRoot = getShadowRoot(this);
         shadowRoot.appendChild(templateNode15.content.cloneNode(true));
+        this.render();
       });
+    }
+    attributeChangedCallback() {
+      if (this.shadowRoot) {
+        const progress = this.getAttribute("progress");
+        if (isProgressValid(progress)) {
+          this.progress = progress === null ? "0" : progress;
+        }
+        this.render();
+      }
+    }
+    render() {
+      const shadowRoot = getShadowRoot(this);
+      const progress = getElement(shadowRoot, "#progress");
+      progress.style.width = `${this.progress}%`;
     }
     disconnectedCallback() {
       var _a;
       (_a = this.clickSubscription) === null || _a === void 0 ? void 0 : _a.unsubscribe();
     }
   };
+  function isProgressValid(progress) {
+    if (progress === null) {
+      return true;
+    }
+    const progressAsNumber = Number(progress);
+    const rounded = Math.floor(progressAsNumber);
+    return rounded == progressAsNumber && Number.isInteger(rounded) && Number.isFinite(rounded) && rounded <= 100 && rounded >= 0;
+  }
 
   // node_modules/cookies-ds/dist/favicon.js
   var favicon_default = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAABmJLR0QA/wD/AP+gvaeTAAAAB3RJTUUH5wQBCDs7CQMXmwAACspJREFUWMOVl1nI5udZxn/P8t/f7Xvfb5nlm8VMkpnMZBuTJm1c0o1KQCmoObHF4oGgQUH0xB4UFLWoIAoKeuJy4EYt1NJQF5RSUWuqSYhJM8kkk8lkli/f8n7v/t+ezYMP0aDE+pzcPDxw39dzwcV9XYL/4/zwQ3ezO1mJe4711vtr/Q+lafJxSdjKk2h4MJ0PhJDTIo1vV3W7WNaNdM7/Y2v931++e7T3Z1+7znO3b71vf/F+jz/7iUfxgUGkxE/Ekf7BIkvuy7K0Y4wl0goIlHWDIKCkwvhA29p6tixf3J8svuA8f5Ikev/F13Z4eTr99gH8wtMfAUSscJedc5/q5OlPdotMe+9xzmGsxzpPr5OxfzgnjTVxpKlbe1Sbhjv7U78sm7+tqvoXNzYH/3LjxgFffv3m/5il/vvl6Ytn+OQHzmOaditW/FKnyH6dEJ68vT+XQSpaY1m1jrf3l7y1M2FrUNDNYxpj2Z2suLk343Besjnsc2x9IJar8u5Vbb7XGnflg3dtXE9Uwuv7k/8dwM89/UkunhmSZdnxQS//3W4n+9E0jjLnYXeyZH+6xCOYlIabBwvObnTZ7Gc47zmYV1iRYrMhL1y9wfZ6l7VejgTyNBoZ5568OaumAnH1wZMj88rO+L0APv3BhzjZ9SxW5QNait8b9DtPZWkilFZ08oxEB+q6pW4tB/OWtSzi3u0R/X4H7xw3d2ccTBccTObctdXj9HoHJQVprJAClBQD69xTdWvO5Hn2/MOnNuffc9dxvnljFwlw36k1rlw7EGkS/ZSQ8uOR1iKONVppfAiUVUOkNYmW6GDJE83aoEtedDEuUNYti6rl8tkBiYTKCqQA5xxxFCGVxqOSNNafsab9fNu02aw2/8XAE/eeZjjIP5AlyecG3byXxBprDc4HjHGMp0vSNCWNY97ZnbI/qzgx6hAClGVF1TpOrPfpFQlNa5guS7pZTKQ1zsOqbslijfeOVW3u1pF6yTn32vd/6DtRn/3UD3E4XTycDTZ/YzKdPpjFkiKP2d2fMK8cpm2BgLGQ5zmLsmK+ajh9bIBra/YnK9Z6BdYF/vX1HVSccuXOhOAcvSKjblq6WUSkBe5IppExTvR63Wfn87lVx7XfKOvm971UH95ay+jFgtYJ4kgynZc0xiGAKI7oFBnetqRxxN0n19HSczivKNsjeU6XK0ZrQ7xOGY8PKdKYs8cGKAl1Y2hai3GeujXnILx7Y2/8vAxSP1Ib+0i9mFKuSha1PaLfQTfTlFVNt5Oy3k+QriKJFPee2sA5h/WCQSdl2IkY9nPSNEMQKJRnVhqiSLMsG4wThACRVmitiKMoW6zqT4+KYqDXe9nje7PQKVJNnkQoEaiqkumiJk4SRsM18jQmUlBWLa2DfiehqlsOFzV5qkkjxbI29PKU1nkSLel2MrJIEoDFqiJPE4SQBASEgHHhgtL6fr3ez56QSogLZ7bQwtG2hmXlUEoyW9UUeY4QgnnZUhtPJ40IIVCawM3xkrJqEMDWsMvJUY6MEopEc2m7i2lbqsYyWVQkScS8bFiULc4F0kiOgpQf1cNeMTx9bEiepxwcjLm9P8cGST/TaGG4s3fAJNa8tbtia9Tl0tl18J69wxnL2rCoHeN5xWTVcHF7QLcjWN8aIAXsHUx5++YeeZZwa28OAqQUTFcNq7IWeZ48ob2zhVIFAtBaURtHFGuKTsGwl2OsBSGZLBuu3T7k/PaQXjcnzzPM/pw81SiRUMSa4B2v3dhFiMCwl7M7nqKU4vh6j4PJnH63gwyGSMLeRFC19jFdNna+GUeUxjFeOfIiZ7WqKauKvJcihEZKyfFhwaw0LMuaTp6w1U+ZrRVs9HO8c6RJQpZI3ti5wXNX7nD/2XU2+xneB/IsY+/tPSrjOTbIsN4T8CCEkFqJbbzhzu6YvVmFT4dcHdfU1mOsYzyvWbaBOI7pZhFXbh6yqgxNazgx6pHFGqUkrTWkScTxtYyTw5xTmwOGvZwsiWiaGoJnsqw4LC1SgPeB1tiZdtb5pq45tdljPNvhldevsjerGNx/nKppeOdgQTYs+Na1HXIcdW3RSnH+1IgTo4LdvUPqxpBEilXVsDEosD5wOC9JRgUBQVk15EWGDZK3DyoK0RIpRRqF2+pjl85cSCL9SKdToJVAhcCjd20QnGO6rJGRZt7CS9duYb3n7HoHYyw39xeMejlFqtk5mBMnCWmaARC8x3qQUrKqLdY6DudL3txb8vrOIUmk2ChilOBLsmnt35WNrUIIdNKY7VGXzUFBpI4WynRec2dnl1Eec+HEiJObAzbXcsq65so7Y1a1ZbIypHFECJDEEbFWCAFFFoNUJIlmUhqu7kxII0UeSQi+VFJ8Xc8W5Qta6zt13Z5bG/TI0oSyrHDek8aKuq452c/4yAOnQGjGswWtDQw7CbPFkvFcM68M1lpaY9kYZMQi4t3xAmsyEhVwLhApxYPbQ04OUppyBUJfS+L4eW2sv2Wsf6lq3bm+isnyI/TOGaZLuPQdmxwuGo6tDyhrw+FsTieNyDUMeh1WZY0UAec843nJej+lMQ6pFD5A1ToIgQdOD2mNY7pY4ZRGKf0XxlU31McunXVNa0dxrJ9KNCLSijjWWGPQSpIlEcZa3rp9iDOG4CzeeYoiI4kVqYZ+rkkiRSeLyfOU5ark3cOSXqdg0M3RwtO0jrKq2TtcgBDv5Fn6OSmjPfXQiRFV3dyE8NEsiU5453DWMS9byqoljiKKVGNNS920TJc1y7JCCIFXGePDMf0i4864JMlSslhRNRZjPb1OjBbgveeV6/tUjWF3vPBKis//wTde/ct7N0eoR84ep9CsllWbSiWfTJM40jpifDinU2T0iqPFA4Is0UghmM8XIATTZYUxLYva0BqPkgLnLONFw9b6gEhH7E9LVlVDJGEyW1Jk0Tfrxn32nlF/9cWX3kT92413uXRsnXcP5i8OB12dZcmTSRwx6Bd0ipg0STDWkiRHbufl6wfsTkpurRzvjEsq68mVoGwdZ7e6xFpSVy1Bx/TymEh4dsczpAjEkURH8R8lUfjK+fMX+IdX3zyyZC/e2uf7HrzLNa15o66bB5z357pFSqQkUmmkgCiKkALqpmVvaXhzf8H+qqabJzx+boMsUjgfaCxsDDuYpiE4S6wF3jsm81WojHshTpNfUUrv/dZf/dN7bfmZIsG2ZjGbr75uvd921l6M41hkeUEcR0T6yGQeX+9xZqPgwTMbXDq9ycOn1hgU6dHPW8O8bEnimF6mWZUVxgVa42ht+Gpl/Y/9+TdevXr57BbP39h7L4BX92fc2ptw/+nN2apsvta0pqxqc8paO2zbhiw9YkSIo0C13ss5tTGgSDV13SCVYras2F7vgHesqpaqMSzrtqyN/4oX6mfyJHr7E49f5je/+s/vH81+5PI9vPitt8STj128p1MkP57F0WcG/c5GrAVKCpSShAAuSNq2ZVXVtOZI7957llVD8N7Py+YF68Kv6jj+a9/UK3n8HH/47N98++H0mQ9fpjFe9jL5XULIZ6wx3x1gI4l0JKSQ/2mvvA+01ppOls4C/o2ysdeDD88dzsovXjyd3nn+euBL//7K/z8dAzz6+C/zWPoFhNTJYr44b6y7oLXa1pJzcaTvU0ptCynvlHX7x8fXBy/HSfLGxokT02d++0/9s7/20/zAz//O+/b/D002rAXTf9krAAAAJXRFWHRkYXRlOmNyZWF0ZQAyMDIzLTA0LTAxVDA4OjU5OjU5KzAwOjAweN1IkwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAyMy0wNC0wMVQwODo1OTo1OSswMDowMAmA8C8AAABXelRYdFJhdyBwcm9maWxlIHR5cGUgaXB0YwAAeJzj8gwIcVYoKMpPy8xJ5VIAAyMLLmMLEyMTS5MUAxMgRIA0w2QDI7NUIMvY1MjEzMQcxAfLgEigSi4A6hcRdPJCNZUAAAAASUVORK5CYII=";

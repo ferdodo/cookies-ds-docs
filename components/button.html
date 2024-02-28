@@ -17,11 +17,22 @@
 		    function buttonSetup () {
 		        return { 
 		        	get template() {
-		        		return `<cookies-button> A button </cookies-button>`;
+		        		return `<cookies-button`
+		        			+ (this.progressEnabled ? ` progress="${ this.progress }"` : '')
+		        			+ `> A button </cookies-button>`;
 		        	},
 		        	get coloredTemplate() {
 		        		return hljs.highlight(this.template, {language: 'xml'}).value;
 		        	},
+		        	get progressAttribute() {
+		        		if (this.progressEnabled) {
+		        			return this.progress;
+		        		} else {
+		        			return null;
+		        		}
+		        	},
+		        	progress: 0,
+		        	progressEnabled: false,
 		        };
 		    }
 		</script>
@@ -31,10 +42,21 @@
 
 		<div x-data="buttonSetup()" class="panel">
 			<div class="panel-body" style="padding: 0.8rem">
-				<cookies-button> A button </cookies-button>
+				<cookies-button x-bind:progress="progressAttribute"> A button </cookies-button>
+				<div style="background-color: burlywood">
+					<cookies-button x-bind:progress="progressAttribute"> A button with colored background </cookies-button>
+				</div>
 			</div>
 			<div class="panel-footer">
 				<pre class="code" data-lang="HTML"><code x-html="coloredTemplate"></code></pre>
+
+				<label class="form-switch">
+		  			<input type="checkbox" x-model="progressEnabled">
+		  			<i class="form-icon"></i> Enable progress
+		  		</label>
+
+				<label> Progress </label>
+				<input class="slider" x-model="progress" type="range" min="0" max="100" value="50">
 		  	</div>
 		</div>
 
